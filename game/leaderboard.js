@@ -6,12 +6,12 @@ function updlb(){
     localStorage['record777'] = xp;
     rec = xp;
 
-	if(ysdk!=null)
+	/*if(ysdk!=null)
 	  ysdk.getLeaderboards()
 	  .then(lb => {
 		lb.setLeaderboardScore('lead', parseInt(rec));
 	  });
-	  else console.log("ysdk == null");
+	  else console.log("ysdk == null");*/
   }else {
     rec = parseInt(rec);
 
@@ -19,12 +19,12 @@ function updlb(){
       rec = xp;
       localStorage['record777'] = xp;
 
-	  if(ysdk!=null)
+	  /*if(ysdk!=null)
 	  ysdk.getLeaderboards()
 	  .then(lb => {
 		lb.setLeaderboardScore('lead', parseInt(rec));
 	  });
-	  else console.log("ysdk == null");
+	  else console.log("ysdk == null");*/
     }
   }
 
