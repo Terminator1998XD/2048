@@ -1,4 +1,4 @@
-var txt = {
+var __localisationTexts__ = {
   "ru":{
     res:'Шарик был не того цвета, который вы выбрали',
     reborn: "Последний шанс",
@@ -20,7 +20,7 @@ var txt = {
 }
 
 function TXT(id){
-  return txt[lang][id];
+  return __localisationTexts__[lang][id];
 }
 
 function hideTexts(){
