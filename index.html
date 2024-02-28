@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title translate="2048 Shooting Game">2048 Стрелялка</title>
+    <script src="libs/jquery.js"></script>
+	  <script src="libs/howler.js"></script>
+    <script type="text/javascript" src="//vkplay.ru/app/33236/static/mailru.core.js"></script>
+		<script src="YandexSDKFunctions.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body oncontextmenu="return false;">
+<script src="engine/managers/resurse.js"></script>
+<script src="engine/managers/input.js"></script>
+
+<script src="engine/content/dtc.js"></script>
+<script src="engine/content/anim.js"></script>
+<script src="engine/content/gameobject.js"></script>
+<script src="engine/content/world.js"></script>
+<script src="engine/content/vector.js"></script>
+
+<script src="engine/engine.js"></script>
+
+<script src="game/sounds.js"></script>
+<script src="game/local.js"></script>
+<script src="game/particle.js"></script>
+<script src="game/leaderboard.js"></script>
+<script src="game/settings.js"></script>
+<script src="game/advprompt.js"></script>
+<script src="game/track.js"></script>
+<script src="game/blockconfig.js"></script>
+<script src="game/block.js"></script>
+<script src="game/game.js"></script>
+<script src="game/moregames.js"></script>
+
+<div class="overlay" style="display:none">
+      <div class="content" id="startGame">
+          <h1 translate="2048 Shooting Game">2048 Стрелялка</h1>
+					<p><span translate="Record number of points: ">Рекордное количество очков:</span><span class="record">0</span></p>
+					<span class="settings"></span>
+          <p><button translate="Play" onclick="PlayClick()" style="font-size:5vh;">Играть</button></p>
+      </div>
+      <div class="content" id="deadscr" style="display:none">
+          <p translate="Game Over">Игра окончена</p>
+					<p><button onclick="NewGame()" style="font-size:5vh;" translate="New Game">Начать с начала</button></p>
+					<p><span translate="Current Score: ">Текущее количество очков: </span><span class="crecord">0</span></p>
+					<p><span translate="Record Score: ">Рекордное количество очков: </span><span class="record">0</span></p>
+					<p><button translate="Recommended games" onclick="moregames('#deadscr')">Рекомендованные игры</button></p>
+					<span class="settings"></span>
+      </div>
+      <div class="content" id="pausem" style="display:none">
+          <h1 translate="Pause">Пауза</h1>
+					<p><span translate="Current Score: ">Текущее количество очков: </span><span class="crecord">0</span></p>
+					<p><span translate="Record Score: ">Рекордное количество очков: </span><span class="record">0</span></p>
+          <p><button onclick="TogglePause()" translate="Continue">Продолжить</button></p>
+					<p><button translate="Recommended games" onclick="moregames('#pausem')">Рекомендованные игры</button></p>
+					<span class="settings"></span>
+      </div>
+			<div class="content" id="moregames" style="display:none">
+				<p><button translate="Back" onclick="moregamesback()">Назад</button></p>
+			</div>
+</div>
+
+</body>
+</html>
