@@ -45,7 +45,7 @@ function Init(){
 		window.ysdk = api;
 		console.log('VK SDK initialized');
 		window.isMobile = false;//!ysdk.deviceInfo.isDesktop() && ysdk.deviceInfo._type != null;
-		window.lang = false;//ysdk.environment.i18n.lang;
+		window.lang = 'ru';//ysdk.environment.i18n.lang;
 		$('#scoreblock').show();
 
 		if(!window.isMobile){
