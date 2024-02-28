@@ -36,39 +36,37 @@ function Init(){
 			return;
 	}
 
-	var callbacks = {
+	iframeApi({
 			appid: 33236,
 			getLoginStatusCallback: function(status) {},
 			userInfoCallback: function(info) {console.log(info);},
 			adsCallback: adsCallback
-	};
+	}).then(function(api){
+		window.ysdk = api;
+		console.log('VK SDK initialized');
+		window.isMobile = false;//!ysdk.deviceInfo.isDesktop() && ysdk.deviceInfo._type != null;
+		window.lang = false;//ysdk.environment.i18n.lang;
+		$('#scoreblock').show();
 
-	function connected(api) {
-			window.ysdk = api;
-			console.log('VK SDK initialized');
-			window.isMobile = false;//!ysdk.deviceInfo.isDesktop() && ysdk.deviceInfo._type != null;
-			window.lang = false;//ysdk.environment.i18n.lang;
-			$('#scoreblock').show();
+		if(!window.isMobile){
+			$('body').css({'background-image': 'url("textures/htmlback.jpg")','background-size':'cover'});
+			const neonColor = 'rgb(255, 255, 255)'; // Здесь вы можете выбрать цвет неона
+			const border = '1px solid white';
+			$(canvas).css({
+				'box-shadow': `0 0 10px ${neonColor}`,
+				'border-left': border,
+				'border-right': border
+			});
+		}
 
-			if(!window.isMobile){
-				$('body').css({'background-image': 'url("textures/htmlback.jpg")','background-size':'cover'});
-				const neonColor = 'rgb(255, 255, 255)'; // Здесь вы можете выбрать цвет неона
-				const border = '1px solid white';
-				$(canvas).css({
-					'box-shadow': `0 0 10px ${neonColor}`,
-					'border-left': border,
-					'border-right': border
-				});
-			}
-
-			scoreTxt = TXT('score');
-			scoreText = scoreTxt + 0;
-			translateBlocks();
-			fillSettings();
-			resizeCanvas();
-	}
-
-	iframeApi(callbacks).then(connected, error);
+		scoreTxt = TXT('score');
+		scoreText = scoreTxt + 0;
+		translateBlocks();
+		fillSettings();
+		resizeCanvas();
+	}, function(code){
+		console.log(code);
+	});
 }
 
 function PlayClick(){
