@@ -9,9 +9,9 @@ var isMobile = false;
 window.addEventListener('resize', resizeCanvas);
 
 function resizeCanvas() {
+  const defaultWidth = 900;
+  const defaultHeight = 1600;
     if(!isMobile){
-      const defaultWidth = 900;
-      const defaultHeight = 1600;
 
       // Выбрать минимальное значение для масштаба, чтобы поместить канвас в окне
       const scale = Math.min(window.innerWidth / defaultWidth, window.innerHeight / defaultHeight);
@@ -22,14 +22,15 @@ function resizeCanvas() {
 
       /*canvas.width = isMobile ? window.innerWidth : Math.min(600,window.innerWidth);
       canvas.height = window.innerHeight;*/
-      window.scaleX = canvas.width/defaultWidth;
-      window.scaleY = canvas.height/defaultHeight;
       canvas.style.marginLeft = `calc(50% - ${canvas.width / 2}px)`;
     }
     else {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
+
+    window.scaleX = canvas.width/defaultWidth;
+    window.scaleY = canvas.height/defaultHeight;
 }
 
 var LMouseDown = false;
