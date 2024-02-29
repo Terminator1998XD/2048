@@ -29,10 +29,22 @@ function hideTexts(){
 
 function translateBlocks(){
     $('[translate]').each(function() {
-    if(lang != 'ru'){
-      var value = $(this).attr('translate');
+    const clang = $(this).attr('clang');
+    if(lang != 'ru' || (clang != "" && lang != clang)){
+      const chtml = $(this).html();
+      const value = $(this).attr('translate');
       $(this).html(value);
+      $(this).attr('translate', chtml);
+      $(this).attr('clang', lang);
     }
     $(this).show();
   });
+}
+
+function setlang(l){
+  window.lang = l;
+  translateBlocks();
+  scoreTxt = TXT('score');
+  AddScore(0);
+  localStorage['savelang'] = l;
 }

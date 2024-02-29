@@ -31,6 +31,19 @@ function Init(){
 
 	hideTexts();
 
+	const queryString = window.location.search.slice(1);
+  if (!queryString) {
+      return {};
+  }
+
+  const paramsArray = queryString.split('&');
+  window.paramsObject = {};
+
+  paramsArray.forEach(param => {
+      const [key, value] = param.split('=');
+      paramsObject[key.toLowerCase()] = value.toLowerCase();
+  });
+
 	if (typeof iframeApi === 'undefined') {
 			console.log('Cannot find iframeApi function, are we inside an iframe?');
 			return;
@@ -44,8 +57,13 @@ function Init(){
 	}).then(function(api){
 		window.ysdk = api;
 		console.log('VK SDK initialized');
-		window.isMobile = false;//!ysdk.deviceInfo.isDesktop() && ysdk.deviceInfo._type != null;
-		window.lang = 'ru';//ysdk.environment.i18n.lang;
+		window.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+		if(localStorage['savelang'] != null) {
+			window.lang = localStorage['savelang'];
+		}
+		else window.lang = paramsObject.lang == 'ru_ru' ? 'ru' : 'en';//ysdk.environment.i18n.lang;
+
 		$('#scoreblock').show();
 
 		if(!window.isMobile){
