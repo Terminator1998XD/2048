@@ -28,18 +28,22 @@ function hideTexts(){
 }
 
 function translateBlocks(){
+
+  if(translateBlocks.flag){
     $('[translate]').each(function() {
-    const clang = $(this).attr('clang');
-    if(lang != 'ru' || (clang != "" && lang != clang)){
-      const chtml = $(this).html();
-      const value = $(this).attr('translate');
+      $(this).attr('translate_ru',$(this).html());
+    });
+    translateBlocks.flag = false;
+  }
+
+    $('[translate]').each(function() {
+      const value = $(this).attr(lang == 'ru' ? 'translate_ru':'translate');
       $(this).html(value);
-      $(this).attr('translate', chtml);
-      $(this).attr('clang', lang);
-    }
     $(this).show();
   });
 }
+
+translateBlocks.flag = true;
 
 function setlang(l){
   window.lang = l;
