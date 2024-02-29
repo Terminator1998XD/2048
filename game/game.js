@@ -93,7 +93,6 @@ function PlayClick(){
 		$('.overlay').hide();
 		OnPause = false;
 		playMusic();
-		if(isMobile) ysdk.adv.hideBannerAdv();
 	});
 }
 
@@ -130,8 +129,6 @@ function NewGameCallback(){
 	$('.overlay').hide();
 	$('#deadscr').hide();
 	$('#pausem').hide();
-
-	if(isMobile) ysdk.adv.hideBannerAdv();
 
 	dim.map = [];
 	Track.pool = [];

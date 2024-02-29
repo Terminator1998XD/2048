@@ -54,7 +54,6 @@ function dead_advprompt(){
       score = score * 2;
       scoreText = scoreTxt + parseInt(score);
       updlb();
-      if(isMobile) ysdk.adv.showBannerAdv();
     },GOmenu, false
     );
   });
@@ -63,7 +62,6 @@ function dead_advprompt(){
     $('#deadscr').show();
     $('.overlay').show(500);
     $('#pausem').hide();
-    if(isMobile) ysdk.adv.showBannerAdv();
   }
 }
 
