@@ -32,7 +32,6 @@
 <script src="game/blockconfig.js"></script>
 <script src="game/block.js"></script>
 <script src="game/game.js"></script>
-<script src="game/moregames.js"></script>
 
 <div class="overlay" style="display:none">
       <div class="content" id="startGame">
@@ -46,7 +45,7 @@
 					<p><button onclick="NewGame()" style="font-size:5vh;" translate="New Game">Начать с начала</button></p>
 					<p><span translate="Current Score: ">Текущее количество очков: </span><span class="crecord">0</span></p>
 					<p><span translate="Record Score: ">Рекордное количество очков: </span><span class="record">0</span></p>
-					<p><button translate="Recommended games" onclick="moregames('#deadscr')">Рекомендованные игры</button></p>
+					<!---<p><button translate="Recommended games" onclick="moregames('#deadscr')">Рекомендованные игры</button></p> -->
 					<span class="settings"></span>
       </div>
       <div class="content" id="pausem" style="display:none">
@@ -54,11 +53,15 @@
 					<p><span translate="Current Score: ">Текущее количество очков: </span><span class="crecord">0</span></p>
 					<p><span translate="Record Score: ">Рекордное количество очков: </span><span class="record">0</span></p>
           <p><button onclick="TogglePause()" translate="Continue">Продолжить</button></p>
-					<p><button translate="Recommended games" onclick="moregames('#pausem')">Рекомендованные игры</button></p>
+					<!---<p><button translate="Recommended games" onclick="moregames('#pausem')">Рекомендованные игры</button></p>-->
 					<span class="settings"></span>
       </div>
-			<div class="content" id="moregames" style="display:none">
+			<!--<div class="content" id="moregames" style="display:none">
 				<p><button translate="Back" onclick="moregamesback()">Назад</button></p>
+			</div>-->
+			<div style="position: absolute; right: 0; top: 0;">
+				<p><button onclick="setlang('ru')">Русский</button></p>
+				<p><button onclick="setlang('en')">English</button><</p>
 			</div>
 </div>
 
