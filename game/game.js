@@ -32,17 +32,16 @@ function Init(){
 	hideTexts();
 
 	const queryString = window.location.search.slice(1);
-  if (!queryString) {
-      return {};
-  }
+	  if (queryString) {
+		  const paramsArray = queryString.split('&');
+		  window.paramsObject = {};
 
-  const paramsArray = queryString.split('&');
-  window.paramsObject = {};
-
-  paramsArray.forEach(param => {
-      const [key, value] = param.split('=');
-      paramsObject[key.toLowerCase()] = value.toLowerCase();
-  });
+		  paramsArray.forEach(param => {
+			  const [key, value] = param.split('=');
+			  paramsObject[key.toLowerCase()] = value.toLowerCase();
+		  });  
+	  }
+	  else window.paramsObject = {lang: 'en'};
 
 	if (typeof iframeApi === 'undefined') {
 			console.log('Cannot find iframeApi function, are we inside an iframe?');
